@@ -3,11 +3,13 @@ import Login from "./components/Login";
 import SideMenu from "./components/SideMenu";
 import Dashboad from "./dashboard";
 import { useSession } from "next-auth/react";
+import scss from "./Home.module.scss";
+import React from "react";
 
-export default function Home() {
+const Home: React.FC = () => {
   const { data: session } = useSession();
   return (
-    <main>
+    <main className={scss.main}>
       <Header></Header>
       {session && (
         <>
@@ -17,4 +19,6 @@ export default function Home() {
       )}
     </main>
   );
-}
+};
+
+export default Home;
